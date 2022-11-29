@@ -1,0 +1,766 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap");
+body {
+  height: 100%;
+  width: 100%;
+  font-family: "Montserrat", sans-serif;
+  background-color: #fafafa;
+  color: #000000;
+}
+
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+  width: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+h1 {
+  font-size: 35px;
+}
+
+h2 {
+  font-size: 30px;
+  letter-spacing: 3px;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+p {
+  font-size: 15px;
+}
+
+@media (max-width: 700px) {
+  h1 {
+    font-size: 30px;
+  }
+  h2 {
+    font-size: 25px;
+  }
+  h3 {
+    font-size: 16px;
+  }
+  h4 {
+    font-size: 14px;
+  }
+  p {
+    font-size: 13px;
+  }
+}
+
+a {
+  background-color: transparent;
+  background-color: transparent;
+  text-decoration: none;
+  color: #000000;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+input {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  border: none;
+  outline: none;
+}
+
+.shadow, .jobCardContainer:hover, .homeContainer .searchContainer .searchForm .inputContainer:focus-within {
+  box-shadow: -1px 8px 26px -4px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: -1px 8px 26px -4px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: -1px 8px 26px -4px rgba(0, 0, 0, 0.1);
+}
+
+.react-responsive-modal-modal {
+  padding: 0px !important;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 400px !important;
+}
+
+.filterModalContainer {
+  display: -ms-grid;
+  display: grid;
+  place-items: flex-start;
+  max-width: 400px;
+  padding: 15px 0;
+}
+
+.filterModalContainer .filterModalBtn {
+  padding: 10px 15px;
+  width: 100%;
+  text-align: left;
+  font-size: 18px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.filterModalContainer .filterModalBtn:hover {
+  background-color: #7aacfc33;
+}
+
+.filterModalContainer .filterBtnSelected {
+  background-color: #7aacfc33;
+}
+
+.navbarContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 15px;
+  border-bottom: 1px solid #cfcfcf;
+}
+
+.navbarContainer .navbarContent {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+}
+
+.navbarContainer .navbarContent .verticalBar {
+  height: 30px;
+  width: 1px;
+  background-color: #cfcfcf;
+}
+
+.navbarContainer .navbarContent .jobButton {
+  height: 73px;
+  max-width: 100px;
+  padding: 10px 15px;
+  border-bottom: 2px solid transparent;
+  font-size: 20px;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+.navbarContainer .navbarContent .jobButton:hover {
+  background-color: #7aacfc33;
+  border-bottom: 2px solid #2557a7;
+}
+
+.navbarContainer .navbarContent .selected {
+  border-bottom: 2px solid #2557a7;
+}
+
+.navbarBtn {
+  padding: 25px 15px;
+  border-bottom: 2px solid transparent;
+  font-size: 20px;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+.navbarBtn p {
+  font-size: 18px;
+}
+
+.navbarBtn:hover {
+  background-color: #7aacfc33;
+  border-bottom: 2px solid #2557a7;
+}
+
+.footerContainer {
+  height: 300px;
+  background-color: #0f0f0f;
+}
+
+.jobCardContainer {
+  max-width: 700px;
+  width: 100%;
+  padding: 15px;
+  border-radius: 15px;
+  border: 1px solid #cfcfcf;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.jobCardContainer .jobCardContent {
+  display: -ms-grid;
+  display: grid;
+  gap: 15px;
+}
+
+.jobCardContainer .jobCardContent .jobTitle {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.jobCardContainer .jobCardContent .jobCompany {
+  font-size: 16px;
+  margin: 4px 0;
+}
+
+.jobCardContainer .jobCardContent .jobLocation {
+  font-size: 16px;
+}
+
+.jobCardContainer .jobCardContent .matchContainer {
+  font-size: 16px;
+  font-weight: 600;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 5px;
+  color: #1c4280;
+}
+
+.jobCardContainer .jobCardContent .iconsContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 6px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  font-size: 18px;
+  font-weight: 600;
+  color: #3a3a3a;
+}
+
+.jobCardContainer .jobCardContent .iconsContainer .iconsContent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  padding: 5px 8px;
+  border-radius: 5px;
+  background-color: #c7c7c7;
+}
+
+.jobCardContainer .jobCardContent .jobDescription {
+  margin-top: 10px;
+}
+
+.jobCardContainer:hover {
+  border: 1px solid #2557a7;
+}
+
+.authContainer {
+  padding: 100px 15px;
+  background-color: #f3f2f1;
+  min-height: 80vh;
+}
+
+.authContainer .authContent {
+  margin: 0 auto;
+  background-color: #fafafa;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 500px;
+  padding: 20px;
+}
+
+.authContainer .authContent .ptag1 {
+  font-size: 18px;
+  margin: 10px 0 20px 0;
+}
+
+.authContainer .authContent .ptag2 {
+  color: #3a3a3a;
+  margin-bottom: 20px;
+}
+
+.authContainer .authContent .typeContent {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.authContainer .authContent .typeContent .typeBtn {
+  background-color: #2557a7;
+  padding: 15px 0;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.authContainer .authContent .typeContent .typeBtn:hover {
+  background-color: #1c4280;
+}
+
+.authContainer .authContent .backContainer .backBtn {
+  padding: 5px;
+  font-size: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.authContainer .authContent .authBtnsContainer .authBtns {
+  position: relative;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  padding: 15px 0;
+  border: 1px solid #3a3a3a;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.authContainer .authContent .authBtnsContainer .authBtns .iconContainer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  padding: 10px 10px 10px 20px;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+}
+
+.authContainer .authContent .authBtnsContainer .authBtns:hover {
+  border: 1px solid #2557a7;
+  background-color: #7aacfc33;
+}
+
+.authContainer .authContent .seperator {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 20px 0;
+}
+
+.authContainer .authContent .seperator .seperatorLine {
+  width: 100%;
+  height: 0.8px;
+  background-color: #cfcfcf;
+}
+
+.authContainer .authContent .seperator p {
+  margin: 0 10px;
+}
+
+.authContainer .authContent .loginBox {
+  display: -ms-grid;
+  display: grid;
+  gap: 20px;
+}
+
+.authContainer .authContent .loginBox .loginInput {
+  border: 2px solid #3a3a3a;
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 18px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.authContainer .authContent .loginBox .loginInput:focus {
+  border: 2px solid #2557a7;
+}
+
+.authContainer .authContent .loginBox .loginButton {
+  background-color: #2557a7;
+  padding: 15px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  border-radius: 10px;
+}
+
+.authContainer .authContent .loginBox .loginButton:hover {
+  background-color: #1c4280;
+}
+
+.profileContainer {
+  padding: 30px 15px;
+  min-height: 60vh;
+}
+
+.profileContainer .profileContent {
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+.profileContainer .profileContent .profileHeader {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 15px;
+}
+
+.profileContainer .profileContent .profileHeader .editBtn {
+  margin-top: 10px;
+  padding: 12px;
+  width: 100%;
+  max-width: 200px;
+  background-color: #2557a7;
+  border-radius: 10px;
+  font-size: 18px;
+  color: #fff;
+}
+
+.profileContainer .profileContent .profileHeader .editBtn:hover {
+  background-color: #1c4280;
+}
+
+.profileContainer .profileContent .profileHeader .signOutBtn {
+  padding: 15px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 20px;
+  background-color: #cb1616;
+}
+
+.profileContainer .profileContent .profileHeader .signOutBtn:hover {
+  background-color: #b01313;
+}
+
+.homeContainer {
+  min-height: 90vh;
+}
+
+.homeContainer .searchContainer {
+  padding: 50px 15px 50px 15px;
+  height: 100%;
+  border-bottom: 1px solid #cfcfcf;
+}
+
+.homeContainer .searchContainer .searchForm {
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 15px;
+  max-width: 1000px;
+  height: 100%;
+}
+
+.homeContainer .searchContainer .searchForm .inputContainer {
+  border: 1px solid #3a3a3a;
+  border-radius: 10px;
+  padding: 15px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.homeContainer .searchContainer .searchForm .inputContainer:focus-within {
+  border: 1px solid #2557a7;
+}
+
+.homeContainer .searchContainer .searchForm .inputContainer input {
+  margin-left: 15px;
+  height: 100%;
+  width: 100%;
+  font-size: 18px;
+  background-color: transparent;
+  color: #3a3a3a;
+}
+
+.homeContainer .searchContainer .searchForm .submitBtn {
+  white-space: nowrap;
+  text-align: center;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background-color: #2557a7;
+  color: #fff;
+}
+
+.homeContainer .searchContainer .searchForm .submitBtn:hover {
+  background-color: #1c4280;
+}
+
+@media (max-width: 850px) {
+  .homeContainer .searchContainer .searchForm {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    max-width: 500px;
+  }
+}
+
+.homeContainer .searchContainer .resumeUploadBtn {
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  margin-top: 20px;
+}
+
+.homeContainer .searchContainer .resumeUploadBtn button {
+  padding: 10px 10px 0 10px;
+  font-size: 18px;
+  color: #2557a7;
+  font-weight: 600;
+}
+
+.homeContainer .searchContainer .resumeUploadBtn button:hover {
+  color: #1c4280;
+}
+
+.homeContainer .filterContainer {
+  margin-top: 20px;
+}
+
+.homeContainer .filterContainer .filterContent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 12px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.homeContainer .filterContainer .filterContent .filterBtn {
+  background-color: #e4e2e0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+  border-radius: 10px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.homeContainer .filterContainer .filterContent .filterBtn p {
+  margin-right: 10px;
+}
+
+.homeContainer .filterContainer .filterContent .filterBtn:hover {
+  background-color: #cdcbca;
+}
+
+.homeContainer .filterContainer .filterFieldsChosenContainer {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.homeContainer .filterContainer .filterFieldsChosenContainer .filterFieldsChosenContent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.homeContainer .filterContainer .filterFieldsChosenContainer .filterFieldsChosenContent .filterFieldsChosen {
+  border-radius: 10px;
+  border: 1px solid #e4e2e0;
+  padding: 8px 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 8px;
+}
+
+.homeContainer .filterContainer .filterFieldsChosenContainer .filterFieldsChosenContent .filterFieldsChosen:hover {
+  background-color: #efeeec;
+}
+
+.homeContainer .jobCardsContainer {
+  margin: 0 auto;
+  padding: 30px 15px;
+  display: -ms-grid;
+  display: grid;
+  gap: 20px;
+  place-items: center;
+}
+
+.resumeUploadContainer {
+  height: 80vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 15px;
+  padding-top: 60px;
+}
+
+.resumeUploadContainer .dropzone {
+  width: 100%;
+  max-width: 1000px;
+  border: 2px dashed #2557a7;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-top: 80px;
+  margin-bottom: 50px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.resumeUploadContainer .dropzone .dropzoneContent {
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  padding: 100px 20px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.resumeUploadContainer .dropzone .dropzoneContent p {
+  font-size: 20px;
+}
+
+.resumeUploadContainer .dropzone .dropActive {
+  background-color: #7aacfc33;
+}
+
+.resumeUploadContainer .dropzone:hover {
+  background-color: #7aacfc33;
+}
+
+.resumeUploadContainer .uploadButton {
+  border-radius: 15px;
+  max-width: 300px;
+  width: 100%;
+  padding: 15px;
+  background-color: #2557a7;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 10px;
+  color: #fff;
+  font-size: 20px;
+}
+
+.resumeUploadContainer .uploadButton p {
+  font-size: 18px;
+}
+
+.resumeUploadContainer .uploadButton:hover {
+  background-color: #1c4280;
+}
+
+.jobPageContainer {
+  padding: 40px 15px;
+}
+
+.jobPageContainer .jobPageContent {
+  margin: 0 auto;
+  max-width: 1000px;
+  display: -ms-grid;
+  display: grid;
+  gap: 20px;
+}
+
+.jobPageContainer .jobPageContent .horizontalBar {
+  height: 1px;
+  width: 100%;
+  background-color: #cfcfcf;
+  margin: 20px 0;
+}
+
+.jobPageContainer .jobPageContent .matchContainer {
+  font-size: 16px;
+  font-weight: 600;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 5px;
+  color: #1c4280;
+  margin-bottom: 6px;
+}
+
+.jobPageContainer .jobPageContent .applyButton {
+  background-color: #2557a7;
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  max-width: 300px;
+  width: 100%;
+}
+
+.jobPageContainer .jobPageContent .applyButton:hover {
+  background-color: #1c4280;
+}
+
+.jobPageContainer .jobPageContent .jobDescription {
+  font-size: 18px;
+}
