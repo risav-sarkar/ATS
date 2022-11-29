@@ -75,7 +75,7 @@ export const getJobListSearch = async (params) => {
 };
 
 //Resume
-export const postResume = async (token, file) => {
+export const postResume = async (file, toast) => {
   try {
     const data = new FormData();
     data.append("file", file);
@@ -86,7 +86,9 @@ export const postResume = async (token, file) => {
         "Content-Type": "multipart/form-data",
       },
     });
+    toast("Resume Uploaded");
   } catch (err) {
     console.log(err);
+    toast(err.message);
   }
 };

@@ -4,6 +4,7 @@ import { useCallback, useContext } from "react";
 import { useDropzone } from "react-dropzone";
 import { AuthContext } from "../../context/AuthContext";
 import { postResume } from "../../apicalls";
+import { toast } from "react-toastify";
 
 const ResumeUpload = () => {
   const { token } = useContext(AuthContext);
@@ -33,7 +34,7 @@ const ResumeUpload = () => {
       <button
         className="uploadButton"
         onClick={() => {
-          postResume(token, acceptedFiles[0]);
+          postResume(acceptedFiles[0], toast);
         }}
       >
         <FontAwesomeIcon icon={faCloudArrowUp} />
