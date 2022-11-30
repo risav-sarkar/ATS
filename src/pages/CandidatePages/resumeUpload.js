@@ -1,6 +1,6 @@
 import { faCloudArrowUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useCallback, useContext } from "react";
+import { useCallback, useContext, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { AuthContext } from "../../context/AuthContext";
 import { postResume } from "../../apicalls";
@@ -8,8 +8,14 @@ import { toast } from "react-toastify";
 
 const ResumeUpload = () => {
   const { token } = useContext(AuthContext);
+  const [isLoading, setisLoading] = useState(false);
   const { acceptedFiles, getRootProps, getInputProps, isDragActive } =
-    useDropzone({ maxFiles: 1 });
+    useDropzone({
+      maxFiles: 1,
+      accept: {
+        "application/pdf": [".pdf"],
+      },
+    });
 
   console.log(acceptedFiles);
 
@@ -25,6 +31,8 @@ const ResumeUpload = () => {
         >
           {isDragActive ? (
             <p>Drop your Resume here ...</p>
+          ) : acceptedFiles.length && acceptedFiles[0] ? (
+            <p>{acceptedFiles[0].path}</p>
           ) : (
             <p>Drag 'n' drop your Resume, or click to select Resume</p>
           )}
@@ -34,11 +42,12 @@ const ResumeUpload = () => {
       <button
         className="uploadButton"
         onClick={() => {
-          postResume(acceptedFiles[0], toast);
+          setisLoading(true);
+          postResume(acceptedFiles[0], token, toast, setisLoading);
         }}
       >
         <FontAwesomeIcon icon={faCloudArrowUp} />
-        <p>Upload</p>
+        <p>{isLoading ? "Loading..." : "Upload"}</p>
       </button>
     </div>
   );

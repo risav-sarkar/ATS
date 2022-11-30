@@ -413,28 +413,13 @@ input {
 
   .profileContent {
     margin: 0 auto;
-    max-width: 800px;
+    max-width: 700px;
 
     .profileHeader {
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 15px;
-
-      .editBtn {
-        margin-top: 10px;
-        padding: 12px;
-        width: 100%;
-        max-width: 200px;
-        background-color: $color1;
-        border-radius: 10px;
-        font-size: 18px;
-        color: $fontColor2;
-
-        &:hover {
-          background-color: $color1_dark;
-        }
-      }
 
       .signOutBtn {
         padding: 15px;
@@ -445,6 +430,59 @@ input {
 
         &:hover {
           background-color: rgb(176, 19, 19);
+        }
+      }
+    }
+
+    .editContainer {
+      background-color: #f3f2f1;
+      display: grid;
+      grid-template-columns: 20px 1fr;
+      align-items: center;
+      text-align: left;
+      gap: 15px;
+      padding: 20px;
+      border-radius: 15px;
+      margin-top: 20px;
+      position: relative;
+      color: $fontColor3;
+      width: 100%;
+
+      .rightIcon {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        display: grid;
+        place-items: center;
+        padding-right: 20px;
+      }
+    }
+
+    .resumeContainer {
+      margin-top: 30px;
+      .resumeBox {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-top: 10px;
+        border: 1px solid $fontColor4;
+        border-radius: 15px;
+        padding: 20px;
+
+        .textContainer {
+          color: $fontColor3;
+
+          h3 {
+            margin-bottom: 5px;
+          }
+        }
+
+        .downloadBtn {
+          cursor: pointer;
+          margin-left: auto;
+          font-size: 25px;
+          padding: 8px;
         }
       }
     }

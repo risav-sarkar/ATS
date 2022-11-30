@@ -6,16 +6,14 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 
-const JobCard = () => {
-  const id = 999;
-
+const JobCard = ({ data }) => {
   return (
-    <Link to={`/job/${id}`} className="jobCardContainer">
+    <Link to={`/job/${data.id}`} className="jobCardContainer">
       <div className="jobCardContent">
         <div>
-          <p className="jobTitle">Front End Developer</p>
-          <p className="jobCompany">IVDISPLAYS DIGITAL SERVICES PVT LTD</p>
-          <p className="jobLocation">Kolkata, West Bengal</p>
+          <p className="jobTitle">{data.title}</p>
+          <p className="jobCompany">Company Name</p>
+          {/* <p className="jobLocation">Kolkata, West Bengal</p> */}
         </div>
 
         <div className="matchContainer">
@@ -36,11 +34,7 @@ const JobCard = () => {
         </div>
 
         <div className="jobDescription">
-          <p>
-            Currently we are looking for a two experienced software developer
-            with Php 7.2 skills having 3+ years of experience and having
-            developed enterprise softwares.
-          </p>
+          <p>{data.description}</p>
         </div>
       </div>
     </Link>

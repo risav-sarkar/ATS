@@ -1,5 +1,5 @@
 import axios from "axios";
-const BaseUrl = "https://atstemp.herokuapp.com";
+export const BaseUrl = "https://atstemp.herokuapp.com";
 
 //Auth
 export const signout = (dispatch) => {
@@ -11,7 +11,6 @@ export const signout = (dispatch) => {
   });
 };
 
-//Employee Auth
 export const employeeRegister = async (req, dispatch, toast) => {
   dispatch({ type: "LOGIN_USER_START" });
   try {
@@ -46,7 +45,16 @@ export const employeeLogin = async (req, dispatch, toast) => {
   }
 };
 
-//Employer Auth
+//Profile
+export const getEmployeeProfile = async (params) => {
+  const token = params.queryKey[1];
+  const res = await axios.get(`${BaseUrl}/employee/data`, {
+    headers: {
+      Authorization: `Token ${token}`,
+    },
+  });
+  return res.data;
+};
 
 //Job
 export const getJobList = async (params) => {
@@ -59,12 +67,11 @@ export const getJobList = async (params) => {
   return res.data;
 };
 
-//Job Search
 export const getJobListSearch = async (params) => {
   const token = params.queryKey[1];
   const searchTerm = params.queryKey[2];
   const res = await axios.get(
-    `${BaseUrl}/employee/search-job-list/?search=${searchTerm}`,
+    `${BaseUrl}/jobs/search-job-list/?search=${searchTerm}`,
     {
       headers: {
         Authorization: `Token ${token}`,
@@ -74,21 +81,45 @@ export const getJobListSearch = async (params) => {
   return res.data;
 };
 
+export const getJobById = async (params) => {
+  const token = params.queryKey[1];
+  const id = params.queryKey[2];
+  const res = await axios.get(`${BaseUrl}/jobs/job-list/${id}`, {
+    headers: {
+      Authorization: `Token ${token}`,
+    },
+  });
+  return res.data;
+};
+
 //Resume
-export const postResume = async (file, toast) => {
+export const postResume = async (file, token, toast, setLoading) => {
   try {
     const data = new FormData();
     data.append("file", file);
-    data.append("employee_id", "2");
 
     const res = await axios.post(`${BaseUrl}/employee/upload-resume`, data, {
       headers: {
         "Content-Type": "multipart/form-data",
+        Authorization: `Token ${token}`,
       },
     });
+    console.log(res.data);
     toast("Resume Uploaded");
+    setLoading(false);
   } catch (err) {
     console.log(err);
     toast(err.message);
+    setLoading(false);
   }
+};
+
+export const getResumes = async (params) => {
+  const token = params.queryKey[1];
+  const res = await axios.get(`${BaseUrl}/employee/resume`, {
+    headers: {
+      Authorization: `Token ${token}`,
+    },
+  });
+  return res.data;
 };

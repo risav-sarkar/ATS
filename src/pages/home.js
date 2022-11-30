@@ -59,13 +59,13 @@ const Home = () => {
 
   const {
     isError: jobListError,
-    isLoading: jobListLoading,
+    isLoading: jobListSearchLoading,
     isFetched: isJobListSearchFetched,
-    isRefetching: jobListRefetching,
+    isRefetching: jobListSearchRefetching,
     data: jobListSearch,
     refetch,
   } = useQuery({
-    queryKey: ["JobList", token, getJobListSearch.jobTitle, emulateFetch],
+    queryKey: ["JobList", token, searchBarContent.jobTitle, emulateFetch],
     queryFn: getJobListSearch,
     enabled: false,
     initialData: [],
@@ -114,7 +114,11 @@ const Home = () => {
             </div>
 
             <button className="submitBtn" type="submit">
-              <h4>Find Jobs</h4>
+              <h4>
+                {jobListSearchLoading || jobListSearchRefetching
+                  ? "Loading..."
+                  : "Find Jobs"}
+              </h4>
             </button>
           </form>
           {jobListSearch.length ? (
@@ -247,11 +251,9 @@ const Home = () => {
                 <h3>No Jobs Found</h3>
               </div>
             ) : (
-              <>
-                <JobCard />
-                <JobCard />
-                <JobCard />
-              </>
+              jobListSearch.map((e) => {
+                return <JobCard data={e} />;
+              })
             )
           ) : null}
         </div>
