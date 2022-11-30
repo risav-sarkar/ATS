@@ -18,7 +18,6 @@ const JobPage = () => {
   const { isError, isLoading, data } = useQuery({
     queryKey: [`JobId${jobId}`, token, jobId],
     queryFn: getJobById,
-    initialData: {},
   });
 
   if (isLoading) return <h1>Loading...</h1>;

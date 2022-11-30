@@ -504,10 +504,19 @@ input {
 
 .profileContainer .profileContent .resumeContainer .resumeBox .textContainer {
   color: #3a3a3a;
+  white-space: normal;
+  width: 100%;
 }
 
 .profileContainer .profileContent .resumeContainer .resumeBox .textContainer h3 {
   margin-bottom: 5px;
+  word-wrap: break-word;
+}
+
+@media (max-width: 500px) {
+  .profileContainer .profileContent .resumeContainer .resumeBox .textContainer {
+    max-width: 200px;
+  }
 }
 
 .profileContainer .profileContent .resumeContainer .resumeBox .downloadBtn {

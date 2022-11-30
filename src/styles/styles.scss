@@ -472,9 +472,16 @@ input {
 
         .textContainer {
           color: $fontColor3;
-
+          white-space: normal;
+          width: 100%;
           h3 {
             margin-bottom: 5px;
+            word-wrap: break-word;
+          }
+        }
+        @media (max-width: 500px) {
+          .textContainer {
+            max-width: 200px;
           }
         }
 

@@ -42,8 +42,12 @@ const ResumeUpload = () => {
       <button
         className="uploadButton"
         onClick={() => {
-          setisLoading(true);
-          postResume(acceptedFiles[0], token, toast, setisLoading);
+          if (acceptedFiles.length) {
+            setisLoading(true);
+            postResume(acceptedFiles[0], token, toast, setisLoading);
+          } else {
+            toast("Select a single PDF file");
+          }
         }}
       >
         <FontAwesomeIcon icon={faCloudArrowUp} />
