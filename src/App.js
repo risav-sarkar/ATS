@@ -2,7 +2,7 @@ import "./styles/styles.css";
 import "react-responsive-modal/styles.css";
 import "react-toastify/dist/ReactToastify.css";
 import { Routes, Route, Navigate } from "react-router-dom";
-import { useContext, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { AuthContext } from "./context/AuthContext";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import { ToastContainer } from "react-toastify";
@@ -14,11 +14,15 @@ import ResumeUpload from "./pages/CandidatePages/resumeUpload";
 import JobPosted from "./pages/EmployerPages/jobPosted";
 import JobApplied from "./pages/CandidatePages/jobApplied";
 import Profile from "./pages/profile";
+import { initialFetch } from "./apicalls";
 
 const App = () => {
-  const { token, type } = useContext(AuthContext);
+  const { token, type, dispatch } = useContext(AuthContext);
 
-  console.log(token, type);
+  useEffect(() => {
+    initialFetch(dispatch);
+  }, []);
+
   const queryClient = useRef(
     new QueryClient({
       defaultOptions: {

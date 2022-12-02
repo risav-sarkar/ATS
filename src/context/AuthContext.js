@@ -4,8 +4,8 @@ import AuthReducer from "./AuthReducer";
 //Actual Initial State
 //No user logged in
 const INITIAL_STATE = {
-  token: JSON.parse(localStorage.getItem("User_ATS_Token")) || null,
-  type: JSON.parse(localStorage.getItem("User_ATS_Type")) || null,
+  token: null,
+  type: null,
   profile: null,
   isFetching: false,
   error: false,

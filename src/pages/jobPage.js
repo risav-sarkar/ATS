@@ -5,19 +5,22 @@ import {
   faStar,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { getJobById } from "../apicalls";
-import { useContext } from "react";
+import { getJobById, postJobApplication } from "../apicalls";
+import { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { useQuery } from "@tanstack/react-query";
 import { format } from "date-fns";
+import { toast } from "react-toastify";
 
 const JobPage = () => {
   const { jobId } = useParams();
-  const { token } = useContext(AuthContext);
+  const { token, profile } = useContext(AuthContext);
+  const [loading, setLoading] = useState(false);
 
   const { isError, isLoading, data } = useQuery({
     queryKey: [`JobId${jobId}`, token, jobId],
     queryFn: getJobById,
+    enabled: !!jobId,
   });
 
   if (isLoading) return <h1>Loading...</h1>;
@@ -36,7 +39,25 @@ const JobPage = () => {
             <FontAwesomeIcon icon={faStar} />
             <p>80% match with your resume</p>
           </div>
-          <button className="applyButton shadow">Apply now</button>
+          <button
+            className="applyButton shadow"
+            onClick={() => {
+              setLoading(true);
+              if (!token) {
+                toast("Please Sign In first");
+              } else {
+                postJobApplication(
+                  token,
+                  profile.id.toString(),
+                  jobId,
+                  toast,
+                  setLoading
+                );
+              }
+            }}
+          >
+            {loading ? "Loading..." : "Apply now"}
+          </button>
         </div>
 
         <div className="horizontalBar"></div>

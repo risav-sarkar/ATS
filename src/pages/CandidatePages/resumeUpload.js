@@ -17,8 +17,6 @@ const ResumeUpload = () => {
       },
     });
 
-  console.log(acceptedFiles);
-
   return (
     <div className="resumeUploadContainer">
       <h2>Upload Your Resume</h2>

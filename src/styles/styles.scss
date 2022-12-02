@@ -274,6 +274,35 @@ input {
   }
 }
 
+//Job Applied Card
+.jobAppliedCardContainer {
+  max-width: 700px;
+  width: 100%;
+  padding: 15px;
+  border-radius: 15px;
+  border: 1px solid $fontColor4;
+  display: flex;
+  justify-content: space-between;
+
+  .statusContainer {
+    padding-bottom: 20px;
+    text-align: center;
+    .statusNameContainer {
+      background-color: $fontColor4;
+      border-radius: 10px;
+      padding: 10px 10px;
+      margin-top: 5px;
+      display: grid;
+      place-items: center;
+    }
+  }
+
+  &:hover {
+    border: 1px solid $color1;
+    @extend %shadow;
+  }
+}
+
 //<---PAGES--->
 //Authpage
 .authContainer {
@@ -742,5 +771,18 @@ input {
     .jobDescription {
       font-size: 18px;
     }
+  }
+}
+
+//JobAppliedPage
+.jobAppliedContainer {
+  padding: 50px 20px;
+  min-height: 60vh;
+
+  .jobAppliedContent {
+    margin: 0 auto;
+    display: grid;
+    gap: 20px;
+    place-items: center;
   }
 }

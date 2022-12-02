@@ -88,7 +88,7 @@ input {
   outline: none;
 }
 
-.shadow, .jobCardContainer:hover, .homeContainer .searchContainer .searchForm .inputContainer:focus-within {
+.shadow, .jobCardContainer:hover, .jobAppliedCardContainer:hover, .homeContainer .searchContainer .searchForm .inputContainer:focus-within {
   box-shadow: -1px 8px 26px -4px rgba(0, 0, 0, 0.1);
   -webkit-box-shadow: -1px 8px 26px -4px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: -1px 8px 26px -4px rgba(0, 0, 0, 0.1);
@@ -273,6 +273,39 @@ input {
 }
 
 .jobCardContainer:hover {
+  border: 1px solid #2557a7;
+}
+
+.jobAppliedCardContainer {
+  max-width: 700px;
+  width: 100%;
+  padding: 15px;
+  border-radius: 15px;
+  border: 1px solid #cfcfcf;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.jobAppliedCardContainer .statusContainer {
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+.jobAppliedCardContainer .statusContainer .statusNameContainer {
+  background-color: #cfcfcf;
+  border-radius: 10px;
+  padding: 10px 10px;
+  margin-top: 5px;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+.jobAppliedCardContainer:hover {
   border: 1px solid #2557a7;
 }
 
@@ -820,4 +853,17 @@ input {
 
 .jobPageContainer .jobPageContent .jobDescription {
   font-size: 18px;
+}
+
+.jobAppliedContainer {
+  padding: 50px 20px;
+  min-height: 60vh;
+}
+
+.jobAppliedContainer .jobAppliedContent {
+  margin: 0 auto;
+  display: -ms-grid;
+  display: grid;
+  gap: 20px;
+  place-items: center;
 }
