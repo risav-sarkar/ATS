@@ -309,6 +309,32 @@ input {
   border: 1px solid #2557a7;
 }
 
+.loginInput {
+  border: 2px solid #3a3a3a;
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 18px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.loginInput:focus {
+  border: 2px solid #2557a7;
+}
+
+.loginButton {
+  background-color: #2557a7;
+  padding: 15px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  border-radius: 10px;
+}
+
+.loginButton:hover {
+  background-color: #1c4280;
+}
+
 .authContainer {
   padding: 100px 15px;
   background-color: #f3f2f1;
@@ -426,32 +452,6 @@ input {
   gap: 20px;
 }
 
-.authContainer .authContent .loginBox .loginInput {
-  border: 2px solid #3a3a3a;
-  border-radius: 10px;
-  padding: 15px;
-  font-size: 18px;
-  width: 100%;
-  margin-top: 10px;
-}
-
-.authContainer .authContent .loginBox .loginInput:focus {
-  border: 2px solid #2557a7;
-}
-
-.authContainer .authContent .loginBox .loginButton {
-  background-color: #2557a7;
-  padding: 15px;
-  font-size: 18px;
-  font-weight: 600;
-  color: #fff;
-  border-radius: 10px;
-}
-
-.authContainer .authContent .loginBox .loginButton:hover {
-  background-color: #1c4280;
-}
-
 .profileContainer {
   padding: 30px 15px;
   min-height: 60vh;
@@ -557,6 +557,29 @@ input {
   margin-left: auto;
   font-size: 25px;
   padding: 8px;
+}
+
+.editProfileContainer {
+  padding: 30px 15px;
+  min-height: 60vh;
+}
+
+.editProfileContainer .editProfileContent {
+  margin: 0 auto;
+  max-width: 700px;
+}
+
+.editProfileContainer .editProfileContent .editProfileHeader .backBtn {
+  font-size: 24px;
+  padding: 5px 5px 5px 0;
+  margin-bottom: 20px;
+}
+
+.editProfileContainer .editProfileContent .editProfileFields {
+  margin-top: 30px;
+  display: -ms-grid;
+  display: grid;
+  gap: 15px;
 }
 
 .homeContainer {

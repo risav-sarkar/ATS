@@ -13,12 +13,13 @@ import { useContext, useState } from "react";
 import { getResumes, getEmployeeProfile, signout, BaseUrl } from "../apicalls";
 import { AuthContext } from "../context/AuthContext";
 import { format } from "date-fns";
+import { Link } from "react-router-dom";
 
 const Profile = () => {
   const { dispatch, token } = useContext(AuthContext);
 
   const { isLoading: profileLoading, data: profile } = useQuery({
-    queryKey: ["EmployeeProfile", token],
+    queryKey: ["Profile", token],
     queryFn: getEmployeeProfile,
   });
 
@@ -46,18 +47,20 @@ const Profile = () => {
           </button>
         </div>
 
-        <button className="editContainer">
-          <FontAwesomeIcon icon={faMessage} />
-          <p>abc@gmail.com</p>
-          <FontAwesomeIcon icon={faPhone} />
-          <p>Add Phone Number</p>
-          <FontAwesomeIcon icon={faLocation} />
-          <p>{`${profile.city}, ${profile.state}, ${profile.country}`}</p>
+        <Link to="/editprofile">
+          <button className="editContainer">
+            <FontAwesomeIcon icon={faMessage} />
+            <p>abc@gmail.com</p>
+            <FontAwesomeIcon icon={faPhone} />
+            <p>Add Phone Number</p>
+            <FontAwesomeIcon icon={faLocation} />
+            <p>{`${profile.city}, ${profile.state}, ${profile.country}`}</p>
 
-          <div className="rightIcon">
-            <FontAwesomeIcon icon={faAngleRight} />
-          </div>
-        </button>
+            <div className="rightIcon">
+              <FontAwesomeIcon icon={faAngleRight} />
+            </div>
+          </button>
+        </Link>
 
         <div className="resumeContainer">
           <h3>Resume</h3>

@@ -303,6 +303,33 @@ input {
   }
 }
 
+//Input Fields
+.loginInput {
+  border: 2px solid $fontColor3;
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 18px;
+  width: 100%;
+  margin-top: 10px;
+
+  &:focus {
+    border: 2px solid $color1;
+  }
+}
+
+.loginButton {
+  background-color: $color1;
+  padding: 15px;
+  font-size: 18px;
+  font-weight: 600;
+  color: $fontColor2;
+  border-radius: 10px;
+
+  &:hover {
+    background-color: $color1_dark;
+  }
+}
+
 //<---PAGES--->
 //Authpage
 .authContainer {
@@ -406,31 +433,6 @@ input {
     .loginBox {
       display: grid;
       gap: 20px;
-      .loginInput {
-        border: 2px solid $fontColor3;
-        border-radius: 10px;
-        padding: 15px;
-        font-size: 18px;
-        width: 100%;
-        margin-top: 10px;
-
-        &:focus {
-          border: 2px solid $color1;
-        }
-      }
-
-      .loginButton {
-        background-color: $color1;
-        padding: 15px;
-        font-size: 18px;
-        font-weight: 600;
-        color: $fontColor2;
-        border-radius: 10px;
-
-        &:hover {
-          background-color: $color1_dark;
-        }
-      }
     }
   }
 }
@@ -521,6 +523,30 @@ input {
           padding: 8px;
         }
       }
+    }
+  }
+}
+
+.editProfileContainer {
+  padding: 30px 15px;
+  min-height: 60vh;
+
+  .editProfileContent {
+    margin: 0 auto;
+    max-width: 700px;
+
+    .editProfileHeader {
+      .backBtn {
+        font-size: 24px;
+        padding: 5px 5px 5px 0;
+        margin-bottom: 20px;
+      }
+    }
+
+    .editProfileFields {
+      margin-top: 30px;
+      display: grid;
+      gap: 15px;
     }
   }
 }

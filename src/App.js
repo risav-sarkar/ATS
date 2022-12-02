@@ -15,10 +15,11 @@ import JobPosted from "./pages/EmployerPages/jobPosted";
 import JobApplied from "./pages/CandidatePages/jobApplied";
 import Profile from "./pages/profile";
 import { initialFetch } from "./apicalls";
+import EditProfile from "./pages/editProfile";
 
 const App = () => {
-  const { token, type, dispatch } = useContext(AuthContext);
-
+  const { token, type, profile, dispatch } = useContext(AuthContext);
+  console.log(token);
   useEffect(() => {
     initialFetch(dispatch);
   }, []);
@@ -45,6 +46,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Navigate to="/candidate" />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/editprofile" element={<EditProfile />} />
           <Route path="/candidate" element={<Home />} />
           <Route path="/uploadresume" element={<ResumeUpload />} />
           <Route path="/job/:jobId" element={<JobPage />} />
@@ -55,6 +57,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Navigate to="/employer" />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/editprofile" element={<EditProfile />} />
           <Route path="/employer" element={<Home />} />
           <Route path="/job/:jobId" element={<JobPage />} />
           <Route path="/jobposted" element={<JobPosted />} />

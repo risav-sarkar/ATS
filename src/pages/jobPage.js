@@ -46,13 +46,7 @@ const JobPage = () => {
               if (!token) {
                 toast("Please Sign In first");
               } else {
-                postJobApplication(
-                  token,
-                  profile.id.toString(),
-                  jobId,
-                  toast,
-                  setLoading
-                );
+                postJobApplication(token, jobId, toast, setLoading);
               }
             }}
           >
