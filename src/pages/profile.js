@@ -50,9 +50,13 @@ const Profile = () => {
         <Link to="/editprofile">
           <button className="editContainer">
             <FontAwesomeIcon icon={faMessage} />
-            <p>abc@gmail.com</p>
+            <p>{profile.email}</p>
             <FontAwesomeIcon icon={faPhone} />
-            <p>Add Phone Number</p>
+            <p>
+              {profile.contact_number
+                ? profile.contact_number
+                : "Contact number not added"}
+            </p>
             <FontAwesomeIcon icon={faLocation} />
             <p>{`${profile.city}, ${profile.state}, ${profile.country}`}</p>
 

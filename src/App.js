@@ -19,7 +19,7 @@ import EditProfile from "./pages/editProfile";
 
 const App = () => {
   const { token, type, profile, dispatch } = useContext(AuthContext);
-  console.log(token);
+
   useEffect(() => {
     initialFetch(dispatch);
   }, []);

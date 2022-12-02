@@ -39,7 +39,7 @@ const EditProfile = () => {
     queryKey: ["Profile", token],
     queryFn: getEmployeeProfile,
   });
-  console.log(employeeProfile);
+
   useEffect(() => {
     if (profile) {
       setEmployeeProfile({
@@ -49,6 +49,7 @@ const EditProfile = () => {
         date_of_birth: profile.date_of_birth,
         user_type: "EMPLOYEE",
         gender: profile.gender,
+        contact_number: profile.contact_number,
         country: "",
         state: "",
         city: "",
@@ -132,6 +133,22 @@ const EditProfile = () => {
                 setEmployeeProfile({
                   ...employeeProfile,
                   email: e.target.value,
+                });
+              }}
+            />
+          </div>
+
+          <div>
+            <h4>Contact Number</h4>
+            <input
+              placeholder="9876543210"
+              type="number"
+              required
+              className="loginInput"
+              onChange={(e) => {
+                setEmployeeProfile({
+                  ...employeeProfile,
+                  contact_number: e.target.value,
                 });
               }}
             />

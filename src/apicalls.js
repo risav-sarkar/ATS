@@ -188,7 +188,7 @@ export const postResume = async (file, token, toast, setLoading) => {
     const data = new FormData();
     data.append("file", file);
 
-    const res = await axios.post(`${BaseUrl}/employee/upload-resume`, data, {
+    const res = await axios.post(`${BaseUrl}/employee/upload-resume/`, data, {
       headers: {
         "Content-Type": "multipart/form-data",
         Authorization: `Token ${token}`,
