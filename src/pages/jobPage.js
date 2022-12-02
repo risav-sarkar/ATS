@@ -42,10 +42,10 @@ const JobPage = () => {
           <button
             className="applyButton shadow"
             onClick={() => {
-              setLoading(true);
               if (!token) {
                 toast("Please Sign In first");
               } else {
+                setLoading(true);
                 postJobApplication(token, jobId, toast, setLoading);
               }
             }}

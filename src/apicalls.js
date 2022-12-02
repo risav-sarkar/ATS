@@ -131,12 +131,7 @@ export const getJobListSearch = async (params) => {
   const token = params.queryKey[1];
   const searchTerm = params.queryKey[2];
   const res = await axios.get(
-    `${BaseUrl}/jobs/search-job-list/?search=${searchTerm}`,
-    {
-      headers: {
-        Authorization: `Token ${token}`,
-      },
-    }
+    `${BaseUrl}/jobs/search-job-list/?search=${searchTerm}`
   );
   return res.data;
 };
@@ -144,11 +139,7 @@ export const getJobListSearch = async (params) => {
 export const getJobById = async (params) => {
   const token = params.queryKey[1];
   const id = params.queryKey[2];
-  const res = await axios.get(`${BaseUrl}/jobs/job-list/${id}`, {
-    headers: {
-      Authorization: `Token ${token}`,
-    },
-  });
+  const res = await axios.get(`${BaseUrl}/jobs/job-list/${id}`);
   return res.data;
 };
 
