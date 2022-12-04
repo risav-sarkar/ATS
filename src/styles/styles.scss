@@ -169,7 +169,6 @@ input {
 
     .jobButton {
       height: 73px;
-      max-width: 100px;
       padding: 10px 15px;
       border-bottom: 2px solid transparent;
       font-size: 20px;
@@ -800,10 +799,113 @@ input {
   }
 }
 
-//JobAppliedPage
+//Dashboard
+.dashboardContainer {
+  display: flex;
+  flex-direction: row;
+  max-height: 100vh;
+
+  .navBar {
+    background-color: $background1;
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-right: 1px solid $background3;
+
+    .navButtons {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-gap: 20px;
+
+      button {
+        text-align: left;
+        width: fit-content;
+        font-size: 22px;
+        letter-spacing: 2px;
+        padding: 10px 15px;
+        border-radius: 20px;
+        color: $fontColor3;
+        display: grid;
+        place-items: center;
+        grid-template-columns: 35px 1fr;
+        grid-gap: 10px;
+
+        &:hover {
+          color: $fontColor2;
+          background-color: $color1_dark;
+        }
+      }
+
+      .selected {
+        color: $fontColor2;
+        background-color: $color1;
+      }
+    }
+  }
+  @media (max-width: 900px) {
+    .navBar {
+      padding: 20px 10px;
+      .navButtons {
+        place-items: center;
+        grid-gap: 40px;
+        button {
+          font-size: 20px;
+          grid-gap: 0px;
+          padding: 10px;
+          p {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  .dashboardContent {
+    width: 100%;
+    padding: 15px;
+    overflow-y: scroll;
+    min-height: 70vh;
+  }
+}
+@media (max-width: 500px) {
+  .dashboardContainer {
+    position: relative;
+
+    .navBar {
+      position: absolute;
+      width: 100%;
+      top: 0;
+      padding: 10px;
+      overflow-x: scroll;
+      .navHeader {
+        display: none;
+      }
+
+      .navButtons {
+        display: flex;
+        justify-content: space-between;
+        grid-gap: 10px;
+        button {
+          grid-gap: 0px;
+          font-size: 22px;
+          padding: 10px;
+          p {
+            display: none;
+          }
+        }
+      }
+    }
+
+    .dashboardContent {
+      padding-top: 68px;
+    }
+  }
+}
+
+//JobAppliedTab
 .jobAppliedContainer {
   padding: 50px 20px;
-  min-height: 60vh;
 
   .jobAppliedContent {
     margin: 0 auto;

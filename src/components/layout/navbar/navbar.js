@@ -17,17 +17,13 @@ const Navbar = () => {
         </Link>
 
         {token ? (
-          <Link to={type === "EMPLOYEE" ? "/jobapplied" : "/jobposted"}>
+          <Link to="/dashboard">
             <button
               className={`jobButton ${
-                location.pathname.includes("jobapplied")
-                  ? "selected"
-                  : location.pathname.includes("jobposted")
-                  ? "selected"
-                  : ""
+                location.pathname.includes("dashboard") ? "selected" : ""
               }`}
             >
-              <h4>{type === "EMPLOYEE" ? "Job Applied" : "Job Posted"}</h4>
+              <h4>Dashboard</h4>
             </button>
           </Link>
         ) : null}

@@ -159,7 +159,6 @@ input {
 
 .navbarContainer .navbarContent .jobButton {
   height: 73px;
-  max-width: 100px;
   padding: 10px 15px;
   border-bottom: 2px solid transparent;
   font-size: 20px;
@@ -878,9 +877,132 @@ input {
   font-size: 18px;
 }
 
+.dashboardContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  max-height: 100vh;
+}
+
+.dashboardContainer .navBar {
+  background-color: #fafafa;
+  padding: 50px 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-right: 1px solid #c7c7c7;
+}
+
+.dashboardContainer .navBar .navButtons {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  grid-gap: 20px;
+}
+
+.dashboardContainer .navBar .navButtons button {
+  text-align: left;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-size: 22px;
+  letter-spacing: 2px;
+  padding: 10px 15px;
+  border-radius: 20px;
+  color: #3a3a3a;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  -ms-grid-columns: 35px 1fr;
+      grid-template-columns: 35px 1fr;
+  grid-gap: 10px;
+}
+
+.dashboardContainer .navBar .navButtons button:hover {
+  color: #fff;
+  background-color: #1c4280;
+}
+
+.dashboardContainer .navBar .navButtons .selected {
+  color: #fff;
+  background-color: #2557a7;
+}
+
+@media (max-width: 900px) {
+  .dashboardContainer .navBar {
+    padding: 20px 10px;
+  }
+  .dashboardContainer .navBar .navButtons {
+    place-items: center;
+    grid-gap: 40px;
+  }
+  .dashboardContainer .navBar .navButtons button {
+    font-size: 20px;
+    grid-gap: 0px;
+    padding: 10px;
+  }
+  .dashboardContainer .navBar .navButtons button p {
+    display: none;
+  }
+}
+
+.dashboardContainer .dashboardContent {
+  width: 100%;
+  padding: 15px;
+  overflow-y: scroll;
+  min-height: 70vh;
+}
+
+@media (max-width: 500px) {
+  .dashboardContainer {
+    position: relative;
+  }
+  .dashboardContainer .navBar {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    padding: 10px;
+    overflow-x: scroll;
+  }
+  .dashboardContainer .navBar .navHeader {
+    display: none;
+  }
+  .dashboardContainer .navBar .navButtons {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    grid-gap: 10px;
+  }
+  .dashboardContainer .navBar .navButtons button {
+    grid-gap: 0px;
+    font-size: 22px;
+    padding: 10px;
+  }
+  .dashboardContainer .navBar .navButtons button p {
+    display: none;
+  }
+  .dashboardContainer .dashboardContent {
+    padding-top: 68px;
+  }
+}
+
 .jobAppliedContainer {
   padding: 50px 20px;
-  min-height: 60vh;
 }
 
 .jobAppliedContainer .jobAppliedContent {

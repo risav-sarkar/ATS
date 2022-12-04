@@ -1,5 +1,5 @@
 import axios from "axios";
-export const BaseUrl = "https://atstemp.herokuapp.com";
+export const BaseUrl = "https://c6de-202-8-114-191.ngrok.io";
 
 //Auth
 export const initialFetch = async (dispatch) => {

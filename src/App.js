@@ -16,6 +16,7 @@ import JobApplied from "./pages/CandidatePages/jobApplied";
 import Profile from "./pages/profile";
 import { initialFetch } from "./apicalls";
 import EditProfile from "./pages/editProfile";
+import Dashboard from "./pages/dashboard";
 
 const App = () => {
   const { token, type, profile, dispatch } = useContext(AuthContext);
@@ -44,23 +45,23 @@ const App = () => {
         </Routes>
       ) : token && type === "EMPLOYEE" ? (
         <Routes>
-          <Route path="/" element={<Navigate to="/candidate" />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/editprofile" element={<EditProfile />} />
-          <Route path="/candidate" element={<Home />} />
+          <Route path="/employee" element={<Home />} />
           <Route path="/uploadresume" element={<ResumeUpload />} />
           <Route path="/job/:jobId" element={<JobPage />} />
-          <Route path="/jobapplied" element={<JobApplied />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/" element={<Navigate to="/employee" />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       ) : (
         <Routes>
-          <Route path="/" element={<Navigate to="/employer" />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/editprofile" element={<EditProfile />} />
           <Route path="/employer" element={<Home />} />
           <Route path="/job/:jobId" element={<JobPage />} />
-          <Route path="/jobposted" element={<JobPosted />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/" element={<Navigate to="/employer" />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       )}

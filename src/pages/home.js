@@ -68,7 +68,6 @@ const Home = () => {
     queryKey: ["JobList", token, searchBarContent.jobTitle, emulateFetch],
     queryFn: getJobListSearch,
     enabled: false,
-    initialData: [],
   });
 
   return (
@@ -121,7 +120,7 @@ const Home = () => {
               </h4>
             </button>
           </form>
-          {jobListSearch.length ? (
+          {jobListSearch?.length ? (
             <div className="filterContainer">
               <div className="filterContent">
                 {FilterBtnsList.map((e) => {

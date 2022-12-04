@@ -15,7 +15,7 @@ const INITIAL_STATE = {
 //Logged In As Candidate
 // const INITIAL_STATE = {
 //   token: 11,
-//   type: "candidate",
+//   type: "EMPLOYEE",
 //   profile: null,
 //   isFetching: false,
 //   error: false,
