@@ -1,5 +1,5 @@
 import axios from "axios";
-export const BaseUrl = "https://c6de-202-8-114-191.ngrok.io";
+export const BaseUrl = "http://54.178.76.238:8000";
 
 //Auth
 export const initialFetch = async (dispatch) => {
@@ -113,6 +113,7 @@ export const editEmployeeProfile = async (
     toast("Profile updated successfully");
   } catch (err) {
     setLoading(false);
+    toast("Something went wrong");
   }
 };
 
@@ -143,14 +144,26 @@ export const getJobById = async (params) => {
   return res.data;
 };
 
-export const getJobApplication = async (params) => {
+export const getJobApplications = async (params) => {
   const token = params.queryKey[1];
   const res = await axios.get(`${BaseUrl}/jobs/currentjobs/`, {
     headers: {
       Authorization: `Token ${token}`,
     },
   });
-  return res.data;
+
+  let jobs = { applied: [...res.data], rejected: [], accepted: [] };
+  for (let i = 0; i < res.data.length; i++) {
+    if (res.data[i].status === "ACCEPTED") {
+      jobs = { ...jobs, accepted: [...jobs.accepted, res.data[i]] };
+    }
+
+    if (res.data[i].status === "REJECTED") {
+      jobs = { ...jobs, rejected: [...jobs.rejected, res.data[i]] };
+    }
+  }
+  console.log(jobs);
+  return jobs;
 };
 
 export const postJobApplication = async (token, jobId, toast, setLoading) => {

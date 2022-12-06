@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { useContext } from "react";
-import { getJobApplication } from "../../apicalls";
+import { getJobApplications } from "../../apicalls";
 import JobAppliedCard from "../../components/common/JobAppliedCard/jobAppliedCard";
 import { AuthContext } from "../../context/AuthContext";
 
@@ -9,10 +9,10 @@ const JobSelected = () => {
   const {
     isError,
     isLoading,
-    data: jobApplied,
+    data: jobs,
   } = useQuery({
     queryKey: [`JobApplied`, token],
-    queryFn: getJobApplication,
+    queryFn: getJobApplications,
   });
 
   if (isLoading) return <h1>Loading...</h1>;
@@ -21,9 +21,9 @@ const JobSelected = () => {
   return (
     <div className="jobAppliedContainer">
       <div className="jobAppliedContent">
-        {!jobApplied.length ? <h2>No jobs applied to</h2> : null}
+        {!jobs.accepted.length ? <h2>No jobs applied to</h2> : null}
 
-        {jobApplied.map((e) => {
+        {jobs.accepted.map((e) => {
           return <JobAppliedCard data={e} />;
         })}
       </div>

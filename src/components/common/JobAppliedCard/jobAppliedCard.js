@@ -13,7 +13,7 @@ const JobAppliedCard = ({ data }) => {
       <div className="statusContainer">
         <p>Status</p>
         <div className="statusNameContainer">
-          <h4>PENDING</h4>
+          <h4>{data.status}</h4>
         </div>
       </div>
     </Link>

@@ -70,6 +70,7 @@ const Home = () => {
     enabled: false,
   });
 
+  console.log(jobListSearchLoading);
   return (
     <div className="homeContainer">
       <div className="homeContent">
@@ -113,11 +114,7 @@ const Home = () => {
             </div>
 
             <button className="submitBtn" type="submit">
-              <h4>
-                {jobListSearchLoading || jobListSearchRefetching
-                  ? "Loading..."
-                  : "Find Jobs"}
-              </h4>
+              <h4>{jobListSearchRefetching ? "Loading..." : "Find Jobs"}</h4>
             </button>
           </form>
           {jobListSearch?.length ? (
