@@ -16,6 +16,7 @@ const JobPage = () => {
   const { jobId } = useParams();
   const { token, profile } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
+  const [isApplied, setApplied] = useState(false);
 
   const { isError, isLoading, data } = useQuery({
     queryKey: [`JobId${jobId}`, token, jobId],
@@ -47,10 +48,11 @@ const JobPage = () => {
               } else {
                 setLoading(true);
                 postJobApplication(token, jobId, toast, setLoading);
+                setApplied(true);
               }
             }}
           >
-            {loading ? "Loading..." : "Apply now"}
+            {loading ? "Loading..." : isApplied ? "Applied" : "Apply now"}
           </button>
         </div>
 

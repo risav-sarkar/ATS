@@ -21,7 +21,7 @@ const JobRejected = () => {
   return (
     <div className="jobAppliedContainer">
       <div className="jobAppliedContent">
-        {!jobs.rejected.length ? <h2>No jobs applied to</h2> : null}
+        {!jobs.rejected.length ? <h2>No Rejectd Jobs</h2> : null}
 
         {jobs.rejected.map((e) => {
           return <JobAppliedCard data={e} />;

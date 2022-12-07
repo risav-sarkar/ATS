@@ -2,6 +2,7 @@ import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext, useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { employeeLogin, employeeRegister } from "../apicalls";
 import { AuthContext } from "../context/AuthContext";
@@ -9,6 +10,7 @@ import CountryStateCity from "../countries+states+cities.json";
 
 const Auth = ({ type }) => {
   const { dispatch, isFetching } = useContext(AuthContext);
+  let navigate = useNavigate();
 
   const [userType, setUserType] = useState(null);
   const [candidateRegisterFields, setCandidateRegisterFields] = useState({
@@ -57,15 +59,21 @@ const Auth = ({ type }) => {
     setStateIndex(null);
   }, [userType, type]);
 
-  const HandleSubmit = (e) => {
+  const HandleSubmit = async (e) => {
     e.preventDefault();
-    if (type === "Register" && userType === 1)
-      employeeRegister(candidateRegisterFields, dispatch, toast);
-    else if (type === "Register" && userType === 2)
+    if (type === "Register" && userType === 1) {
+      const res = await employeeRegister(
+        candidateRegisterFields,
+        dispatch,
+        toast
+      );
+      navigate("/");
+    } else if (type === "Register" && userType === 2)
       console.log("Employer Registration Submit");
-    else if (type === "Signin" && userType === 1)
-      employeeLogin(candidateSigninFields, dispatch, toast);
-    else console.log("Employer Signin Submit");
+    else if (type === "Signin" && userType === 1) {
+      const res = await employeeLogin(candidateSigninFields, dispatch, toast);
+      navigate("/");
+    } else console.log("Employer Signin Submit");
   };
 
   return (

@@ -13,10 +13,11 @@ import { useContext, useState } from "react";
 import { getResumes, getEmployeeProfile, signout, BaseUrl } from "../apicalls";
 import { AuthContext } from "../context/AuthContext";
 import { format } from "date-fns";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Profile = () => {
   const { dispatch, token } = useContext(AuthContext);
+  let navigate = useNavigate();
 
   const { isLoading: profileLoading, data: profile } = useQuery({
     queryKey: ["Profile", token],
@@ -41,6 +42,7 @@ const Profile = () => {
             className="signOutBtn"
             onClick={() => {
               signout(dispatch);
+              navigate("/");
             }}
           >
             <FontAwesomeIcon icon={faSignOut} />

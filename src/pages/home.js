@@ -70,7 +70,6 @@ const Home = () => {
     enabled: false,
   });
 
-  console.log(jobListSearchLoading);
   return (
     <div className="homeContainer">
       <div className="homeContent">
@@ -117,6 +116,7 @@ const Home = () => {
               <h4>{jobListSearchRefetching ? "Loading..." : "Find Jobs"}</h4>
             </button>
           </form>
+
           {jobListSearch?.length ? (
             <div className="filterContainer">
               <div className="filterContent">
@@ -231,13 +231,11 @@ const Home = () => {
             </div>
           ) : null}
 
-          {token && type === "EMPLOYEE" ? (
-            <div className="resumeUploadBtn">
-              <Link to="/uploadresume">
-                <button>Upload Resume</button>
-              </Link>
-            </div>
-          ) : null}
+          <div className="resumeUploadBtn">
+            <Link to="/uploadresume">
+              <button>Upload Resume</button>
+            </Link>
+          </div>
         </div>
 
         <div className="jobCardsContainer">

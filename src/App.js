@@ -41,28 +41,23 @@ const App = () => {
           <Route path="/signin" element={<Auth type={"Signin"} />} />
           <Route path="/register" element={<Auth type={"Register"} />} />
           <Route path="/job/:jobId" element={<JobPage />} />
-          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       ) : token && type === "EMPLOYEE" ? (
         <Routes>
+          <Route path="/" element={<Home />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/editprofile" element={<EditProfile />} />
-          <Route path="/employee" element={<Home />} />
           <Route path="/uploadresume" element={<ResumeUpload />} />
           <Route path="/job/:jobId" element={<JobPage />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/" element={<Navigate to="/employee" />} />
-          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       ) : (
         <Routes>
+          <Route path="/" element={<Home />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/editprofile" element={<EditProfile />} />
-          <Route path="/employer" element={<Home />} />
           <Route path="/job/:jobId" element={<JobPage />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/" element={<Navigate to="/employer" />} />
-          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       )}
       <ToastContainer
