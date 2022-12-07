@@ -1,5 +1,5 @@
 import axios from "axios";
-export const BaseUrl = "http://54.178.76.238:8000";
+export const BaseUrl = process.env.REACT_APP_ATS_BASE_URL;
 
 //Auth
 export const initialFetch = async (dispatch) => {
